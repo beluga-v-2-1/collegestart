@@ -1,0 +1,85 @@
+def startup():
+    print("welcome to my program")
+    print()
+    print("+-------------------------------+---------+")
+    print("|to use calculator              | press 1 |")
+    print("|to to end the program          | type end|")
+    print("+-------------------------------+---------+")
+    choice = input(">>>")
+    if choice == "1" :
+        calculator()
+    else :
+        print("invalid option selected")
+
+        
+def calculator():
+    print("hi welcome to the calculator")
+    print("+-------------------------------+---------+")
+    print("|to multiply two numbers        | press 1 |")
+    print("|to add two numbers             | press 2 |")
+    print("|to substract two numbers       | press 3 |")
+    print("|return to main menu            | press 4 |")
+    print("+-------------------------------+---------+")
+    print("please select an option or type end to close the program")
+    choice = input(">>>")
+    if choice == "1" :
+        multiplier()
+    elif choice == "2" :
+        adder()
+    elif choice == "3" :
+        substractor()
+    elif choice == "4" :
+        startup()
+    elif choice.lower() == "end" :
+        exit()
+    else :
+        print("please enter a correct option")
+        
+def multiplier():
+    print("process : multiplier")
+    print("enter the first number")
+    firstnumber = input(">>>")
+    print("enter the second number")
+    secondnumber = input(">>>")
+    result = int(firstnumber)*int(secondnumber)
+    print(f" the resultant is {result}")
+    print()
+    print("type anything to continue")
+    numm = input()
+    
+    calculator()
+
+
+
+    
+def adder():
+    print("process : addition")
+    print("enter the first number")
+    firstnumber = input(">>>")
+    print("enter the second number")
+    secondnumber = input(">>>")
+    result = int(firstnumber)+int(secondnumber)
+    print(f" the resultant is {result}")
+    print()
+    print("type anything to continue")
+    numm = input()
+    calculator()
+
+
+
+
+    
+def substractor():
+    print("process : substraction")
+    print("enter the first number")
+    firstnumber = input(">>>")
+    print("enter the second number")
+    secondnumber = input(">>>")
+    result = int(firstnumber)-int(secondnumber)
+    print(f" the resultant is {result}")
+    print()
+    print("type anything to continue")
+    numm = input()
+    calculator()
+
+startup()
