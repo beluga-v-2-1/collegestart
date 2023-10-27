@@ -39,6 +39,8 @@ void displayEmployeeData(int n, char names[][50], int ids[], float salaries[], f
 }
 
 int main() {
+    printf("NAME :George Joseph Mappilacherry\n")
+    printf("REGNO :- 2362812\n")
     int n;
     printf("Enter the number of employees: ");
     scanf("%d", &n);
