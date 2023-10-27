@@ -34,6 +34,8 @@ int binarySearch(struct Employee arr[], int left, int right, int targetID) {
 }
 
 int main() {
+    printf("NAME :Tharun Adhithya.A\n")
+    printf("REGNO :- 2362640\n")
     int n, targetID;
     
     // Input the number of employees
