@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 int main() {
+    printf("NAME :George Joseph Mappilacherry\n")
+    printf("REGNO :- 2362812\n")
     int rows, cols;
 
     // Input the dimensions of the matrices
