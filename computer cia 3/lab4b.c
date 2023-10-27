@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 int main() {
+    printf("NAME :Tharun Adhithya.A\n")
+    printf("REGNO :- 2362640\n")
     int rows = 3;
     int currentNumber = 5;
     
