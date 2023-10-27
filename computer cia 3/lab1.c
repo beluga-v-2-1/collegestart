@@ -3,6 +3,8 @@
 // Function to calculate salary based on provided details
 void calculateSalary(float basicSalary, char employeeType, float *da, float *tax, float *finalSalary) {
     *da = 1.10 * basicSalary;
+    printf("NAME :Richard MR\n")
+    printf("REGNO :- 2362528\n")
     *tax = 0.20 * basicSalary + *da;
     *finalSalary = basicSalary + *da - *tax;
 }
