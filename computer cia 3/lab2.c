@@ -1,20 +1,21 @@
 #include <stdio.h>
 
-// Function to calculate salary based on employee type and experience
+// Function to calculate salary based on employee type, daily rate, and experience
 float calculateSalary(char employeeType, int experience) {
-    float baseSalary;
-    float increment = 1000 * experience;
-
+    float dailyRate, increment;
+    
     if (employeeType == 'P') {
-        baseSalary = 1000;  // Permanent employee's base salary
+        dailyRate = 1000.0;  // Daily rate for Permanent employees
     } else if (employeeType == 'T') {
-        baseSalary = 400;   // Temporary employee's base salary
+        dailyRate = 400.0;   // Daily rate for Temporary employees
     } else {
         printf("Invalid Employee Type. Please enter 'P' for Permanent or 'T' for Temporary.\n");
         return -1;  // Indicate an error
     }
 
-    return baseSalary + increment;
+    increment = 1000.0 * experience;
+    
+    return dailyRate * 365 + increment;
 }
 
 int main() {
