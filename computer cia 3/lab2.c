@@ -3,6 +3,8 @@
 // Function to calculate salary based on employee type, daily rate, and experience
 float calculateSalary(char employeeType, int experience) {
     float dailyRate, increment;
+    printf("NAME :Richard MR\n")
+    printf("REGNO :- 2362528\n")
     
     if (employeeType == 'P') {
         dailyRate = 1000.0;  // Daily rate for Permanent employees
