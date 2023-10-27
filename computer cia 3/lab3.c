@@ -14,6 +14,8 @@ float calculateDeductions(float grossSalary) {
 }
 
 int main() {
+    printf("NAME :A. Melsica Manuel\n")
+    printf("REGNO :- 2362601\n")
     int choice;
     float basicSalary, hra, da, ma;
 
