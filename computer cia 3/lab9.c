@@ -20,6 +20,8 @@ float calculateTotalAmount(int n, struct Employee employees[]) {
 }
 
 int main() {
+    printf("NAME :Jofi Jaison\n")
+    printf("REGNO :-  2362816\n")
     int n;
     printf("Enter the number of employees: ");
     scanf("%d", &n);
