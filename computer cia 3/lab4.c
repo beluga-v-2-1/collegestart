@@ -1,36 +1,27 @@
 #include <stdio.h>
 
-// Function to calculate gross salary
-float calculateGrossSalary(float basic, float hra, float da, float ma) {
-    return basic + hra + da + ma;
-}
-
-// Function to calculate deductions (PF, Professional Tax, and Income Tax)
-float calculateDeductions(float grossSalary) {
-    float pf = 0.12 * grossSalary;
-    float professionalTax = 200.0;
-    float incomeTax = 0.20 * grossSalary;
-    return pf + professionalTax + incomeTax;
-}
-
 int main() {
-    printf("NAME :A. Melsica Manuel\n")
-    printf("REGNO :- 2362601\n")
     int choice;
-    float basicSalary, hra, da, ma;
+    float basic_salary, hra, da, ma, gross_salary, net_salary;
+    float pf_contribution, professional_tax, income_tax;
+    int continue_program = 1; // Initialize continue_program to 1 to start the loop
 
     do {
-        printf("\nMenu:\n");
+        printf("***********************\n");
+        printf("Reg.No: 2362601\n");
+        printf("NAME:A. Melsica Manuel\n");
+        printf("***********************\n");
+        printf("Employee Salary Calculation Menu\n");
         printf("1. Enter Employee Details\n");
         printf("2. Calculate Employee Salary\n");
         printf("3. Exit\n");
-        printf("Enter your choice: ");
+        printf("Enter your choice (1, 2, or 3): ");
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
                 printf("Enter Basic Salary: ");
-                scanf("%f", &basicSalary);
+                scanf("%f", &basic_salary);
                 printf("Enter House Rent Allowance (HRA): ");
                 scanf("%f", &hra);
                 printf("Enter Dearness Allowance (DA): ");
@@ -39,33 +30,36 @@ int main() {
                 scanf("%f", &ma);
                 break;
             case 2:
-                if (basicSalary == 0) {
-                    printf("Please enter employee details first.\n");
+                if (basic_salary == 0) {
+                    printf("Please enter employee details first (Option 1).\n");
                 } else {
-                    float grossSalary = calculateGrossSalary(basicSalary, hra, da, ma);
-                    float deductions = calculateDeductions(grossSalary);
-                    float netSalary = grossSalary - deductions;
+                    gross_salary = basic_salary + hra + da + ma;
+                    pf_contribution = 0.12 * basic_salary;
+                    professional_tax = 200.0;
+                    income_tax = 0.2 * (gross_salary - pf_contribution - professional_tax);
+                    net_salary = gross_salary - pf_contribution - professional_tax - income_tax;
 
-                    printf("\nEmployee Salary Slip\n");
-                    printf("Basic Salary: %.2f\n", basicSalary);
-                    printf("HRA: %.2f\n", hra);
-                    printf("DA: %.2f\n", da);
-                    printf("MA: %.2f\n", ma);
-                    printf("Gross Salary: %.2f\n", grossSalary);
-                    printf("Deductions:\n");
-                    printf("   Employee PF: %.2f\n", 0.12 * grossSalary);
-                    printf("   Professional Tax: %.2f\n", 200.0);
-                    printf("   Income Tax: %.2f\n", 0.20 * grossSalary);
-                    printf("Net Salary: %.2f\n", netSalary);
+                    printf("Salary Slip\n");
+                    printf("Basic Salary: %.2f\n", basic_salary);
+                    printf("House Rent Allowance (HRA): %.2f\n", hra);
+                    printf("Dearness Allowance (DA): %.2f\n", da);
+                    printf("Medical Allowance (MA): %.2f\n", ma);
+                    printf("Gross Salary: %.2f\n", gross_salary);
+                    printf("Employee PF Contribution: %.2f\n", pf_contribution);
+                    printf("Professional Tax: %.2f\n", professional_tax);
+                    printf("Income Tax: %.2f\n", income_tax);
+                    printf("Net Salary: %.2f\n", net_salary);
                 }
                 break;
             case 3:
+                continue_program = 0; // Set continue_program to 0 to exit the loop
+                printf("Exiting the program. Goodbye!\n");
                 break;
             default:
-                printf("Invalid choice. Please enter a valid option.\n");
+                printf("Invalid choice. Please select 1, 2, or 3.\n");
                 break;
         }
-    } while (choice != 3);
+    } while (continue_program);
 
     return 0;
 }
