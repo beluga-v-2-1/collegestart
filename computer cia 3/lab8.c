@@ -1,16 +1,5 @@
 #include <stdio.h>
 
-// Function to calculate the total amount spent by the Account Manager
-float calculateTotalAmount(int n, float* permanentSalaries, float* contractPayments) {
-    float totalAmount = 0;
-    
-    for (int i = 0; i < n; i++) {
-        totalAmount += permanentSalaries[i] + contractPayments[i];
-    }
-
-    return totalAmount;
-}
-
 int main() {
     printf("***********************\n");
     printf("Reg.No: 2362816\n");
@@ -20,26 +9,25 @@ int main() {
     printf("Enter the number of employees: ");
     scanf("%d", &n);
 
-    float permanentSalaries[n];
-    float contractPayments[n];
-
-    // Input data for permanent and contract employees
-    for (int i = 0; i < n; i++) {
-        printf("Enter the total amount paid for Employee %d (Permanent): ", i + 1);
-        scanf("%f", &permanentSalaries[i]);
-    }
+    int employee_ids[n];
+    float total_amounts[n];
 
     for (int i = 0; i < n; i++) {
-        printf("Enter the total amount paid for Employee %d (Contract): ", i + 1);
-        scanf("%f", &contractPayments[i]);
+        printf("Enter Employee ID and Total Amount Paid for Employee %d: ", i + 1);
+        scanf("%d %f", &employee_ids[i], &total_amounts[i]);
     }
 
-    // Calculate the total amount spent by the Account Manager
-    float totalAmount = calculateTotalAmount(n, permanentSalaries, contractPayments);
+    float total_spent = 0.0;
+    for (int i = 0; i < n; i++) {
+        total_spent += total_amounts[i];
+    }
 
-    // Display the accounts balance sheet
-    printf("\nAccounts Balance Sheet\n");
-    printf("Total Amount Spent by the Account Manager: %.2f\n", totalAmount);
+    printf("\nAccounts Balance Sheet:\nEmployee ID\tTotal Amount Paid\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\t\t%.2f\n", employee_ids[i], total_amounts[i]);
+    }
+    printf("Total Amount Spent by Account Manager: %.2f\n", total_spent);
 
     return 0;
 }
+
