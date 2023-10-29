@@ -1,50 +1,37 @@
 #include <stdio.h>
-
-// Function to calculate salary based on provided details
-void calculateSalary(float basicSalary, char employeeType, float *da, float *tax, float *finalSalary) {
-    *da = 1.10 * basicSalary;
-    printf("NAME :Richard MR\n")
-    printf("REGNO :- 2362528\n")
-    *tax = 0.20 * basicSalary + *da;
-    *finalSalary = basicSalary + *da - *tax;
-}
-
 int main() {
-    int employeeID, age;
-    float basicSalary, da, tax, finalSalary;
-    char employeeType;
-    char department[50];
-
+    printf("***********************\n");
+    printf("Reg.No: 1234\n");
+    printf("***********************\n");
+    // Declare variables to store employee details
+    int employee_id, age;
+    float basic_salary, da, tax, final_salary;
+    char employee_type, department[50];
+    // Input employee details
     printf("Enter Employee ID: ");
-    scanf("%d", &employeeID);
-
+    scanf("%d", &employee_id);
     printf("Enter Age: ");
     scanf("%d", &age);
-
     printf("Enter Basic Salary: ");
-    scanf("%f", &basicSalary);
-
+    scanf("%f", &basic_salary);
     printf("Enter Employee Type (P for Permanent, T for Temporary): ");
-    scanf(" %c", &employeeType);
-
+    scanf(" %c", &employee_type);  
     printf("Enter Department: ");
     scanf("%s", department);
-
-    if (employeeType != 'P' && employeeType != 'T') {
-        printf("Invalid Employee Type. Please enter 'P' for Permanent or 'T' for Temporary.\n");
-    } else {
-        calculateSalary(basicSalary, employeeType, &da, &tax, &finalSalary);
-
-        printf("\nEmployee Salary Slip\n");
-        printf("Employee ID: %d\n", employeeID);
-        printf("Age: %d\n", age);
-        printf("Basic Salary: %.2f\n", basicSalary);
-        printf("Employee Type: %c\n", employeeType);
-        printf("Department: %s\n", department);
-        printf("DA (Dearness Allowance): %.2f\n", da);
-        printf("Tax: %.2f\n", tax);
-        printf("Final Salary: %.2f\n", finalSalary);
-    }
-
+    // Calculate DA and Tax
+    da = 1.1 * basic_salary;
+    tax = 0.2 * basic_salary + da;
+    // Calculate Final Salary
+    final_salary = basic_salary + da - tax;
+    // Display Employee Salary Slip
+    printf("\nEmployee Salary Slip\n");
+    printf("Employee ID: %d\n", employee_id);
+    printf("Age: %d\n", age);
+    printf("Basic Salary: %.2f\n", basic_salary);
+    printf("Employee Type: %s\n", (employee_type == 'P') ? "Permanent" : "Temporary");
+    printf("Department: %s\n", department);
+    printf("DA: %.2f\n", da);
+    printf("Tax: %.2f\n", tax);
+    printf("Final Salary: %.2f\n", final_salary);
     return 0;
 }
