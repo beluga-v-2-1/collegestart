@@ -5,8 +5,8 @@ int main() {
     float basic_salary, hra, da, ma, gross_salary, net_salary;
     float pf_contribution, professional_tax, income_tax;
     printf("***********************\n");
-    printf("Reg.No: 2362528\n");
-    printf("NAME: Richard MR\n");
+    printf("Reg.No: 2362601\n");
+    printf("NAME:A. Melsica Manuel\n");
     printf("***********************\n");
     printf("Employee Salary Calculation Menu\n");
     printf("1. Enter Employee Details\n");
