@@ -1,7 +1,8 @@
 #include <stdio.h>
 int main() {
     printf("***********************\n");
-    printf("Reg.No: 1234\n");
+    printf("Reg.No: 2362528\n");
+    printf("NAME: Richard MR\n");
     printf("***********************\n");
     // Declare variables to store employee details
     int employee_id, age;
