@@ -1,65 +1,51 @@
 #include <stdio.h>
 
-// Function to input human resource procurement details
-void inputHRDetails(int n, char names[][50], int ids[], float salaries[]) {
-    for (int i = 0; i < n; i++) {
-        printf("Enter details for Employee %d:\n", i + 1);
-        printf("Name: ");
-        scanf("%s", names[i]);
-        printf("Employee ID: ");
-        scanf("%d", &ids[i]);
-        printf("Salary: ");
-        scanf("%f", &salaries[i]);
-    }
+struct Employee {
+    int id, age;
+    char name[50];
+    float salary;
+};
+
+void collectData(struct Employee *emp) {
+    printf("Enter ID, Name, Age, Salary: ");
+    scanf("%d %s %d %f", &emp->id, emp->name, &emp->age, &emp->salary);
 }
 
-// Function to calculate the salary for each employee
-void calculateSalaries(int n, float salaries[], float da[], float hra[], float ma[]) {
-    for (int i = 0; i < n; i++) {
-        da[i] = 0.1 * salaries[i];  // DA (Dearness Allowance) is 10% of the salary
-        hra[i] = 0.2 * salaries[i];  // HRA (House Rent Allowance) is 20% of the salary
-        ma[i] = 500.0;  // MA (Medical Allowance) is a fixed amount of Rs. 500
-        salaries[i] += da[i] + hra[i] + ma[i];
-    }
-}
-
-// Function to display employee data
-void displayEmployeeData(int n, char names[][50], int ids[], float salaries[], float da[], float hra[], float ma[]) {
-    printf("\nEmployee Data:\n");
-    for (int i = 0; i < n; i++) {
-        printf("Employee %d:\n", i + 1);
-        printf("Name: %s\n", names[i]);
-        printf("Employee ID: %d\n", ids[i]);
-        printf("Salary: %.2f\n", salaries[i]);
-        printf("DA: %.2f\n", da[i]);
-        printf("HRA: %.2f\n", hra[i]);
-        printf("MA: %.2f\n", ma[i]);
-        printf("\n");
-    }
+float calculateSalary(float salary, float hra, float da, float ma) {
+    return salary + hra + da + ma;
 }
 
 int main() {
-    printf("NAME :George Joseph Mappilacherry\n")
-    printf("REGNO :- 2362812\n")
-    int n;
-    printf("Enter the number of employees: ");
-    scanf("%d", &n);
+    printf("***********************\n");
+    printf("Reg.No: 2362812\n");
+    printf("NAME: George Joseph Mappilacherry\n");
+    printf("***********************\n");
+    struct Employee emp;
+    int choice;
+    float hra, da, ma, grossSalary;
 
-    char names[n][50];
-    int ids[n];
-    float salaries[n];
-    float da[n];
-    float hra[n];
-    float ma[n];
+    do {
+        printf("1. Data Collection\n2. Salary Calculation\n3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-    // Input human resource procurement details
-    inputHRDetails(n, names, ids, salaries);
-
-    // Calculate salaries
-    calculateSalaries(n, salaries, da, hra, ma);
-
-    // Display employee data
-    displayEmployeeData(n, names, ids, salaries, da, hra, ma);
+        switch (choice) {
+            case 1:
+                collectData(&emp);
+                break;
+            case 2:
+                printf("Enter HRA, DA, MA: ");
+                scanf("%f %f %f", &hra, &da, &ma);
+                grossSalary = calculateSalary(emp.salary, hra, da, ma);
+                printf("Gross Salary: %.2f\n", grossSalary);
+                break;
+            case 3:
+                printf("Exiting the program. Goodbye!\n");
+                break;
+            default:
+                printf("Invalid choice. Please select 1, 2, or 3.\n");
+        }
+    } while (choice != 3);
 
     return 0;
 }
