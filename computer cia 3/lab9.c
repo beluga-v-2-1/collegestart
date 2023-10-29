@@ -1,52 +1,37 @@
 #include <stdio.h>
 
-// Define a structure to store employee details
 struct Employee {
+    int employee_id;
     char name[50];
-    int employeeID;
-    float permanentSalary;
-    float contractPayment;
+    float total_amount_paid;
 };
 
-// Function to calculate the total amount spent by the Account Manager
-float calculateTotalAmount(int n, struct Employee employees[]) {
-    float totalAmount = 0;
-    
-    for (int i = 0; i < n; i++) {
-        totalAmount += employees[i].permanentSalary + employees[i].contractPayment;
-    }
-
-    return totalAmount;
-}
-
 int main() {
-    printf("NAME :Jofi Jaison\n")
-    printf("REGNO :-  2362816\n")
     int n;
     printf("Enter the number of employees: ");
     scanf("%d", &n);
 
     struct Employee employees[n];
 
-    // Input data for permanent and contract employees
     for (int i = 0; i < n; i++) {
-        printf("Enter details for Employee %d:\n", i + 1);
-        printf("Name: ");
+        printf("Enter Employee ID: ");
+        scanf("%d", &employees[i].employee_id);
+        printf("Enter Name: ");
         scanf("%s", employees[i].name);
-        printf("Employee ID: ");
-        scanf("%d", &employees[i].employeeID);
-        printf("Total Amount Paid for Employee (Permanent): ");
-        scanf("%f", &employees[i].permanentSalary);
-        printf("Total Amount Paid for Employee (Contract): ");
-        scanf("%f", &employees[i].contractPayment);
+        printf("Enter Total Amount Paid for Employee %d: ", employees[i].employee_id);
+        scanf("%f", &employees[i].total_amount_paid);
     }
 
-    // Calculate the total amount spent by the Account Manager
-    float totalAmount = calculateTotalAmount(n, employees);
+    float total_spent = 0.0;
+    for (int i = 0; i < n; i++) {
+        total_spent += employees[i].total_amount_paid;
+    }
 
-    // Display the accounts balance sheet
-    printf("\nAccounts Balance Sheet\n");
-    printf("Total Amount Spent by the Account Manager: %.2f\n", totalAmount);
+    printf("\nAccounts Balance Sheet:\nEmployee ID\tName\tTotal Amount Paid\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\t\t%s\t%.2f\n", employees[i].employee_id, employees[i].name, employees[i].total_amount_paid);
+    }
+    printf("Total Amount Spent by Account Manager: %.2f\n", total_spent);
 
     return 0;
 }
