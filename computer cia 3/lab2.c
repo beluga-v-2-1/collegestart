@@ -7,7 +7,10 @@ int main() {
     char employee_type, department[50];
 
     // Input employee details
-    
+    printf("***********************\n");
+    printf("Reg.No: 2362528\n");
+    printf("NAME: Richard MR\n");
+    printf("***********************\n");
     printf("Enter Employee ID: ");
     scanf("%d", &employee_id);
     printf("Enter Age: ");
