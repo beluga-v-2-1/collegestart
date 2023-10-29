@@ -1,61 +1,36 @@
 #include <stdio.h>
 
 int main() {
+    int row, col;
     printf("***********************\n");
     printf("Reg.No: 2362812\n");
     printf("NAME: George Joseph Mappilacherry\n");
     printf("***********************\n");
-    int rows, cols;
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &row, &col);
 
-    // Input the dimensions of the matrices
-    printf("Enter the number of rows: ");
-    scanf("%d", &rows);
-    printf("Enter the number of columns: ");
-    scanf("%d", &cols);
+    int matrix1[row][col], matrix2[row][col];
 
-    // Input the elements of the first matrix
-    int matrix1[rows][cols];
-    printf("Enter the elements of the first matrix:\n");
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
+    printf("Enter elements of the first matrix:\n");
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < col; j++)
             scanf("%d", &matrix1[i][j]);
-        }
-    }
 
-    // Input the elements of the second matrix
-    int matrix2[rows][cols];
-    printf("Enter the elements of the second matrix:\n");
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
+    printf("Enter elements of the second matrix:\n");
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < col; j++)
             scanf("%d", &matrix2[i][j]);
-        }
-    }
 
-    // Calculate the transpose of both matrices
-    int transpose1[cols][rows];
-    int transpose2[cols][rows];
+    int sum[row][col];
 
-    for (int i = 0; i < cols; i++) {
-        for (int j = 0; j < rows; j++) {
-            transpose1[i][j] = matrix1[j][i];
-            transpose2[i][j] = matrix2[j][i];
-        }
-    }
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < col; j++)
+            sum[i][j] = matrix1[j][i] + matrix2[j][i];
 
-    // Add the transposed matrices
-    int result[cols][rows];
-
-    for (int i = 0; i < cols; i++) {
-        for (int j = 0; j < rows; j++) {
-            result[i][j] = transpose1[i][j] + transpose2[i][j];
-        }
-    }
-
-    // Print the result
-    printf("Resultant matrix after adding the transposed matrices:\n");
-    for (int i = 0; i < cols; i++) {
-        for (int j = 0; j < rows; j++) {
-            printf("%d ", result[i][j]);
+    printf("Sum of Transposed Matrices:\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            printf("%d ", sum[i][j]);
         }
         printf("\n");
     }
